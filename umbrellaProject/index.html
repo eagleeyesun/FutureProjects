@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Interactive Umbrella</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="umbrella-preview">
+            <img id="umbrella" src="/assests/Blue umbrella.png" alt="Umbrella">
+            <img id="blue-loader" src="/assests/blue-loader.svg" alt="loading..." style="display: none;">
+            <img id="pink-loader" src="/assests/pink-loader.svg" alt="loading..." style="display: none;">
+            <img id="yellow-loader" src="/assests/yellow-loader.svg" alt="loading..." style="display: none;">
+
+            <img id="logo" alt="Uploaded Logo" style="display: none;">
+        </div>
+        <div class="controls">
+            <h1 class="test">Custom Umbrella</h1>
+            <div class="color-palette">
+                <div class="color-palette">
+                    <button class="color-btn" style="background-color: #000000;" onclick="changeColor('#000000')"></button>
+                    <button class="color-btn" style="background-color: #808080;" onclick="changeColor('#808080')"></button>
+                    <button class="color-btn" style="background-color: #31B4E7;" onclick="changeColor('#000080')"></button>
+                    <button class="color-btn" style="background-color: #FF00FF;" onclick="changeColor('#FF00FF')"></button>
+                    <button class="color-btn" style="background-color: #4500f3;" onclick="changeColor('#00FFFF')"></button>
+                    <button class="color-btn" style="background-color: #FFFF00;" onclick="changeColor('#FFFF00')"></button>
+                    <button class="color-btn" style="background-color: #FFA500;" onclick="changeColor('#FFA500')"></button>
+                    <button class="color-btn" style="background-color: #FF0000;" onclick="changeColor('#FF0000')"></button>
+                </div>
+            </div>
+            <div class="upload-logo">
+                <div>
+                    <h2>Customize your umbrella</h2>
+                    <p class="some-padding">Upload a logo for an instant preview.</p>
+                    <span>.png and .jpg files only. Max file size is 5MB</span>
+                </div>
+            </div>
+            <div class="upload-btn" onclick="document.getElementById('logo-upload').click()">
+                <img id="dynamic-sign" src="/assests/upload.svg" alt="uploadSign" style="display: block;">
+                <img id="white-loader" src="assests/white-loader.svg" style="display: none;" alt="">
+                <p id="file-name">UPLOAD LOGO</p>
+                <input type="file" id="logo-upload" accept=".png, .jpg" style="display: none;" onchange="uploadLogo(event)">
+                <img id='close' src="/assests/close.svg" alt="close button" style="visibility: hidden;">
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

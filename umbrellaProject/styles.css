@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+h1 {
+    font-size: 35px;
+    font-weight: 500;
+    padding-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.umbrella-preview {
+    position: relative;
+}
+
+#umbrella {
+    width: 400px;
+    height: 350px;
+    position: relative;
+}
+
+#logo{
+    position: absolute;
+    top: 75%;
+    right: 40%;
+    max-width: 100px;
+    max-height: 60px;
+    display: none;
+}
+
+.controls{
+    padding-left: 100px;
+}
+
+.some-padding {
+    padding-bottom: 5px;
+}
+
+
+.color-palette {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.color-btn {
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.upload-btn {
+    width: 100%;
+    height: 40px;
+    background-color: #31B4E7;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+.upload-btn:hover{
+    cursor: pointer;
+}
+
+.upload-btn > p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+span {
+    font-size: smaller;
+}
+
+.controls {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+#close {
+    width: 30px;
+    height: 30px;
+}
+
+#blue-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    animation: swing 2s linear infinite;;
+}
+#yellow-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    animation: swing 2s linear infinite;;
+}
+#pink-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    animation: swing 2s linear infinite;;
+}
+
+#white-loader {
+    display: flex;
+    justify-content: center;
+    animation: swing 2s linear infinite;
+}
+
+
+@keyframes swing {
+    from {
+        transform: rotate(0deg); 
+
+    }
+    to {
+      transform: rotate(360deg); 
+    }
+    
+}

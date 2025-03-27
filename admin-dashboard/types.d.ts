@@ -11,5 +11,5 @@ interface Book {
     available_copies: number;
     video: string;
     summary: string;
-    // isLoanedBook: boolean;
+    isLoanedBook: boolean;
 }

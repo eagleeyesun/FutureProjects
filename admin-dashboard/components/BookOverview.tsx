@@ -46,7 +46,7 @@ const BookOverview =
             </div>
             <p className='mt-7 flex flex-row flex-wrap gap-4 text-xl text-[#D6E0FF];'>{description}</p>
           </div>
-          <Button className='mt-4 min-h-14 w-fit bg-[#EED1AC] text-[#16191E] hover:bg-primary/90 max-md:w-full'>
+          <Button className='mt-4 min-h-14 w-fit rounded-xl bg-[#EED1AC] text-[#16191E] hover:bg-primary/90 max-md:w-full'>
             <Image src='/icons/book.svg' alt='button' width={20} height={20} />
             <p className='bebas-neue text-xl text-[#16191E]'>Borrow</p>
           </Button>

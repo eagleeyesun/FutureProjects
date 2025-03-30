@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Responsive website</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-white container-fluid">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="/assets/google.png" width="80" height="80" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav mx-auto text-center gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Showroom
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">New Models</a></li>
+                            <li><a class="dropdown-item" href="#">Pre Owned</a></li>
+                            <li><a class="dropdown-item" href="#">Financing</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sales Team</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/financing">Financing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/service">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-2 justify-content-center mt-3 mt-lg-0">
+                    <img width="20" height="15" src="/assets/facebook.svg" alt="facebook">
+                    <img width="20" height="15" src="/assets/twitter.svg" alt="twitter">
+                    <img width="20" height="15" src="/assets/instagram.svg" alt="instagram">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="d-flex hero-text gap-4 flex-xl-row flex-sm-column bg-body-secondary">
+        <div class="d-flex flex-column w-lg-100" id="hero-section">
+            <h1>This is a Page Header</h1>
+            <p class="fs-4 mt-2 mb-1">Subtext for header</p>
+            <p class="hero-lines m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Architecto quae doloremque exercitationem repudiandae velit? Rem,
+                modi beatae impedit ipsum porro earum natus sequi delectus nesciunt eaque.
+                Possimus culpa veniam repellendus!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla iure facere omnis minima necessitatibus
+                voluptatum ipsa corporis, iusto distinctio quo non, blanditiis animi dolorum vitae? Labore earum itaque
+                ipsam pariatur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum laudantium perspiciatis
+                atque minima ratione porro est fuga reprehenderit hic odit tenetur necessitatibus voluptates, autem
+                culpa architecto, accusamus eveniet quidem ullam. Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit. Iure expedita quasi fugit, est illum iste soluta amet repudiandae voluptatibus praesentium
+                commodi, alias atque nobis in quod. Dolorum nulla possimus tempora.
+
+            </p>
+            <button type="button" class="apply btn-success btn">Apply Now!</button>
+        </div>
+
+        <div id="card-container">
+            <div class="position-relative">
+                <img src="/assets/dirtBike.jpg" alt="dirtBike" class="mb-2 object-fit-cover border rounded"
+                    style="width:100%; height:100px;" />
+                <div class="position-absolute top-0">
+                    <h4 class="text-white pt-2 ps-3">Dirt Bike</h4>
+                    <button class="btn btn-link text-center text-white pt-0 ps-3 text-decoration-none">
+                        Click Me (<span class="click-count">0</span>)
+                    </button>
+                </div>
+            </div>
+
+            <div class="position-relative">
+                <img src="/assets/greenImage.jpg" class="mb-2 object-fit-cover border rounded"
+                    style="width:100%; height:100px;" alt="greenery" />
+                <div class="position-absolute top-0">
+                    <h4 class="text-white pt-2 ps-3">Green Sky</h4>
+                    <button class="btn btn-link text-white pt-0 ps-3 text-decoration-none">
+                        Click Me(<span class="click-count">0</span>)
+                    </button>
+                </div>
+            </div>
+
+            <div class="position-relative">
+                <img src="/assets/jellyFish.jpg" class="mb-2 object-fit-cover border rounded"
+                    style="width:100%; height:100px;" alt="jellyfish" />
+                <div class="position-absolute top-0">
+                    <h4 class="text-white pt-2 ps-3">Jelly Fish</h4>
+                    <button class="btn btn-link text-white pt-0  ps-3 text-decoration-none">
+                        Click Me(<span class="click-count">0</span>)
+                    </button>
+                </div>
+            </div>
+
+            <div class="position-relative">
+                <img src="/assets/space.jpg" class="mb-4 object-fit-cover border rounded"
+                    style="width:100%; height:100px;" alt="space" />
+                <div class="position-absolute top-0">
+                    <h4 class="text-white pt-2 ps-3">Space</h4>
+                    <button class="btn btn-link text-white ps-3 pt-0 text-decoration-none">
+                        Click Me(<span class="click-count">0</span>)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <div
+        class="d-flex flex-column justify-content-center align-items-center click-container mb-5 pt-4 bg-body-secondary">
+        <h2 class="fs-4 fw-normal">How many times have the buttons been clicked?</h2>
+        <p class="pb-4">The button have been clicked 0 times </p>
+    </div>
+
+    <div class="third-container pt-4">
+        <div class="d-flex last-container">
+            <div class="d-flex w-50 test-container">
+                <ul class="bg-body-secondary unorderedList class-border">
+                    <p class="fs-4 m-0 pt-5">Our Brands</p>
+                    <li>Kawasaki</li>
+                    <li>Honda</li>
+                    <li>Aprilla</li>
+                    <li>Suzuki</li>
+                    <li>Yamaha</li>
+                </ul>
+                <div class="img-container ps-4">
+                    <img src="/assets/kawasaki.jpg" class="img-fluid bikeImg rounded-circle" alt="Bike">
+                </div>
+            </div>
+
+            <div class="col ps-4 welcome-container">
+                <h4 class="fw-normal">Welcome to Here</h4>
+                <p class="wel-words lh-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia in
+                    repudiandae cum accusamus corporis
+                    provident aliquam fuga nostrum minus expedita? Soluta ducimus quo sunt nulla odit rerum eius
+                    corporis
+                    ab. Lorem ipsum dolor sit, amet consectetur adipisicing elit. S laudantium provident eveniet odit
+                    dolore? Veniam Lorem ipsum dolor sit, amet consectetur adipisicing elit. S laudantium provident
+                    eveniet odit
+                    dolore? Veniam Lorem ipsum dolor sit, amet consectetur adipisicing elit. S laudantium provident
+                    eveniet odit
+                    dolore? Veniam Lorem ipsum dolor sit, amet consectetur adipisicing elit. S laudantium provident
+                    eveniet odit
+                    dolore? Veniam
+                    neque placeat corporis?
+                    neque placeat corporis? Id.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="d-lg-flex justify-content-lg-around align-items-lg-center footer-container">
+        <div class="footer-copyright">
+            <p class="m-0">Copyright@ 2023 Dealer Spike</p>
+        </div>
+        <div class="d-flex gap-4 align-items-center footer-links">
+            <a href="">Policy</a>
+            <a href="">Privacy</a>
+            <a href="">Terms</a>
+            <a href="">Accessibility</a>
+            <a href="">Site Map</a>
+        </div>
+        <div class="footer-logo">
+            <img src="/assets/google.png" width="80" height="80" alt="logo">
+        </div>
+
+    </footer>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

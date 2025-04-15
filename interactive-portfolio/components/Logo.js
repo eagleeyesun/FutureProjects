@@ -4,7 +4,7 @@ import { useGLTF, OrthographicCamera } from '@react-three/drei'
 import * as THREE from 'three'
 
 export function Logo(props) {
-  const { nodes } = useGLTF('/sunLogo.gltf')
+  const { nodes } = useGLTF('/models/sunLogo.gltf')
 
   // Create a silver metallic material
   const silverMaterial = new THREE.MeshStandardMaterial({

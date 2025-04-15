@@ -3,18 +3,22 @@
 @tailwind utilities;
 
 
-.lenis.lenis-smooth {
-    scroll-behavior: auto !important;
+::-webkit-scrollbar {
+    display: none;
+  }
+
+  
+  @keyframes rainbowGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
   
-  .lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-  }
-  
-  .lenis.lenis-stopped {
-    overflow: hidden;
-  }
-  
-  .lenis.lenis-smooth iframe {
-    pointer-events: none;
+  .rainbow-text {
+    background: linear-gradient(270deg, #ff5f40, #f9ca24, #1abc9c, #3498db, #9b59b6, #ff5f40);
+    background-size: 1200% 1200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: rainbowGradient 10s ease infinite;
   }

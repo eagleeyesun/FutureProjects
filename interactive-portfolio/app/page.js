@@ -9,29 +9,25 @@ import Heading from "@/components/Heading";
 
 
 export default function Home() {
-  let ref = useRef(null);
-  let { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
 
-  });
-  let { y } = useTransform(scrollYProgress, [0, 1], ["0%", "5%"]);
+
   return (
-    <div className="w-screen h-screen" ref={ref}>
+    <div className="w-screen h-screen">
       <div className="relative w-full h-full overflow-hidden">
-        <motion.div style={{ y }} className="absolute inset-0 transition-transform ease-in-out duration-500">
+        <div className="absolute inset-0 transition-transform ease-in-out duration-500">
           <Hero className="w-full h-full z-0 " />
-        </motion.div >
-        <div className="absolute top-0 left-0 right-0 z-10">
+        </div >
+        {/* <div className="absolute top-0 left-0 right-0 z-10">
           <Navbar />
-        </div>
+        </div> */}
 
-        <div className="z-30 pt-[35%] relative flex justify-end">
+        <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-10 md:right-10 z-30">
           <Heading />
         </div>
 
 
       </div>
+
       <div className="z-20 relative">
         <Slider />
       </div>

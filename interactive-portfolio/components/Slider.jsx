@@ -20,7 +20,7 @@ const Slider = () => {
     const router = useRouter()
 
     const rawX = useTransform(scrollYProgress, [0, 1], ["0%", "-70%"])
-    const x = useSpring(rawX, { stiffness: 50, damping: 30 })  // 👈 smoother motion
+    const x = useSpring(rawX, { stiffness: 100, damping: 30, restDelta:0.001 })  // 👈 smoother motion
 
     const handleClick = (slide) => {
         setSelected(slide)

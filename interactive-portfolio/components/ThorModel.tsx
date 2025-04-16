@@ -2,7 +2,7 @@
 
 import { Suspense, useRef } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { useGLTF, Environment, Loader, OrbitControls, Html } from "@react-three/drei"
+import { useGLTF, Environment, Loader, OrbitControls, Html, Preload } from "@react-three/drei"
 import * as THREE from "three"
 import Loading from "./Loading"
 
@@ -118,6 +118,7 @@ export default function ThorModel() {
           </Rig>
         </Suspense>
         <Environment preset="studio" />
+        <Preload all />
       </Canvas>
       {/* <Loader /> */}
     </>

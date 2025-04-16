@@ -1,4 +1,4 @@
-"use"
+"use client"
 import React, { useRef } from 'react'
 import { useGLTF, OrthographicCamera } from '@react-three/drei'
 import * as THREE from 'three'

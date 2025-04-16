@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono , Doto, Montserrat} from "next/font/google";
 import "./globals.css";
-import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 
 export const doto = Doto({
@@ -38,6 +37,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
+        <div className="absolute top-2 left-0 right-0 z-10">
+           <Navbar />
+        </div>
+       
         {children}
       </body>
     </html>

@@ -1,6 +1,8 @@
-import { Geist, Geist_Mono , Doto, Montserrat, Birthstone_Bounce  } from "next/font/google";
+import { Geist, Geist_Mono, Doto, Montserrat, Birthstone_Bounce } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Loading from "@/components/Loading";
+import LayoutWrapper from "@/components/LayoutWrapper";
 
 export const bBounce = Birthstone_Bounce({
   subsets: ["latin"],
@@ -17,7 +19,7 @@ export const doto = Doto({
 
 export const monte = Montserrat({
   variable: "--font-monte",
-  weight: ["400","700"],
+  weight: ["400", "700"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -43,12 +45,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
-        <div className="absolute top-2 left-0 right-0 z-10 sm:flex">
-           <Navbar />
-        </div>
-       
-        {children}
+        <LayoutWrapper>
+
+          <div className="absolute top-2 left-0 right-0 z-50">
+            <Navbar />
+          </div>
+
+          {children}
+
+        </LayoutWrapper>
       </body>
+
     </html>
   );
 }

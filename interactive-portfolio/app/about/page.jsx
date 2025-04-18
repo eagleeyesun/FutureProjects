@@ -19,66 +19,43 @@ const skills = [
 const Page = () => {
 
   return (
-    <>
-      <section className={`${monte.className} relative pt-20 w-screen h-screen flex justify-evenly bg-[goldenrod]`}>
-        <div className='absolute top-0 left-0 right-0 z-0'>
-          <MonkeyModel />
-        </div>
 
-      <div className='flex flex-col w-screen h-screen text-wrap sm:flex md:flex-row'>
-         <div className='relative flex flex-wrap flex-col w-screen h-screen gap-3 sm:p-10'>
-          <h1 className='text-2xl font-extrabold md:text-6xl'>ABOUT</h1>
-          <h2 className='text-xs sm:text-lg font-semibold'>Full-stack dev with a frontend heart and backend brain. <br />
-            From crafting sleek React interfaces to engineering scalable and
-            <br /> secure backends with Node.js, Express, and beyond—I do it all. <br />
-            Obsessed with clean architecture, performance,<br /> and user delight.</h2>
-
-          <p className='text-xs sm:text-lg font-semibold'>  I thrive on solving real-world challenges and <br /> turning complex problems into clean, scalable web solutions. <br />
-            My approach to development is as dynamic <br /> as the tech landscape itself—there’s no one-size-fits-all,<br /> only continuous learning and adaptation. <br />
-
-            Whether it’s pixels or endpoints, I’m all about crafting <br /> seamless digital experiences with a touch of fun and <br /> a lot of function.
-            Always open to exciting opportunities, <br /> creative collaborations, and great conversations.
-
-          </p>
-        </div>
-
-
-        <div className='relative p-5 flex flex-col align-center gap-5'>
-          <Image className='pt-[10%] md:h-[40%] md:w-[100%] rounded-lg shadow-xl filter grayscale hover:grayscale-0 transition duration-300' src='/MyImg.jpeg' alt='my Image' height={200} width={600} />
-          <img className='absolute top-[1%] right-[20%]' src="/bulle.gif" alt="just" />
-          <a
-            href="/ShubhamN_Resume.pdf"
-            download
-            className="hidden md:block font-bold text-center py-2 border-2 border-black dark:border-white uppercase bg-white text-black transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]"
-          >
-            GET MY RESUME
-          </a>
-        </div>
+    <section className={`${monte.className} pt-24 w-screen gap-10 h-screen bg-[goldenrod] grid lg:grid lg:grid-cols-2`}>
+      <div className='absolute top-0 h-screen w-screen left-0 right-0 z-10'>
+        <MonkeyModel />
       </div>
-       
 
+      <div className='text-center lg:text-left z-20 pl-12'>
+        <h1 className='font-extrabold text-6xl'>ABOUT</h1>
+        <h2 className='text-xs sm:text-lg font-semibold pt-2'>Full-stack dev with a frontend heart and backend brain. <br />
+          From crafting sleek React interfaces to engineering scalable and
+          <br /> secure backends with Node.js, Express, and beyond—I do it all. <br />
+          Obsessed with clean architecture, performance,<br /> and user delight.</h2>
 
-        <div className="overflow-hidden absolute bottom-0 whitespace-nowrap w-full bg-[goldenrod] py-4">
-          <motion.div
-            className="flex gap-8 min-w-max"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-          >
-            {[...skills, ...skills].map((skill, index) => (
-              <span key={index} className="text-lg font-bold text-black">
-                {skill} •
-              </span>
+        <p className='text-xs sm:text-lg font-medium pt-2'>  I thrive on solving real-world challenges and <br /> turning complex problems into clean, scalable web solutions. <br />
+          My approach to development is as dynamic <br /> as the tech landscape itself—there’s no one-size-fits-all,<br /> only continuous learning and adaptation. <br />
 
-            ))}
-          </motion.div>
-        </div>
+          Whether it’s pixels or endpoints, I’m all about crafting <br /> seamless digital experiences with a touch of fun and <br /> a lot of function.
+          Always open to exciting opportunities, <br /> creative collaborations, and great conversations.
 
+        </p>
+      </div>
 
-      </section>
+      <div className='relative pl-5 lg:pl-40 max-w-[100%] lg:col-span-1 flex flex-col justify-center gap-5'>
+        <Image className='rounded-lg sm:pl-10 md:w-[70%] filter grayscale hover:grayscale-0 transition duration-300' src='/MyImg.jpeg' alt='my Image' height={400} width={600} />
+        <img className='absolute top-[5%] right-[35%]' src="/bulle.gif" alt="just" />
+        <a
+          href="/ShubhamN_Resume.pdf"
+          download
+          className="font-bold max-w-[50%] z-50 hidden md:block lg:ml-20 text-center py-2 border-2 border-black dark:border-white uppercase bg-white text-black transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]"
+        >
+          GET MY RESUME
+        </a>
+      </div>
 
-      <div className='relative flex justify-center align-center bg-[goldenrod] sm:pt-8 sm:bottom-80'>
-        <div className="flex flex-col text-center group relative  dark:bg-black border border-black dark:border-white rounded-lg p-3 transition-transform duration-300 hover:scale-105 shadow-[2px_2px_0_rgba(0,0,0)] dark:shadow-[2px_2px_0_rgba(255,255,255)] w-[50%] text-sm">
-          <h1 className=" text-xl sm:text-2xl font-bold mb-1 text-black dark:text-white">WORK EXPERIENCE</h1>
+      <div className='lg:col-span-2 py-6 bg-[goldenrod] flex justify-center'>
+        <div className="w-full max-w-4xl flex flex-col text-center relative dark:bg-black border border-black dark:border-white rounded-lg p-6 transition-transform duration-300 hover:scale-105 shadow-[2px_2px_0_rgba(0,0,0)] dark:shadow-[2px_2px_0_rgba(255,255,255)] text-sm">
+          <h1 className=" text-2xl font-bold mb-1 text-black dark:text-white">WORK EXPERIENCE</h1>
           <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Software Engineer</h2>
           <p className="text-sm text-gray-600 dark:text-gray-400">@ Bizkriege Solutions Pvt Ltd, Pune</p>
           <p className="text-xs font-medium text-gray-500 dark:text-gray-300">Aug 2022 – Present</p>
@@ -91,7 +68,26 @@ const Page = () => {
         </div>
 
       </div>
-    </>
+
+
+
+      <div className="overflow-hidden lg:col-span-2 whitespace-nowrap w-full bg-[goldenrod]">
+        <motion.div
+          className="flex gap-8 min-w-max"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+        >
+          {[...skills, ...skills].map((skill, index) => (
+            <span key={index} className="text-lg font-bold text-black">
+              {skill} •
+            </span>
+
+          ))}
+        </motion.div>
+      </div>
+
+
+    </section>
 
   )
 }

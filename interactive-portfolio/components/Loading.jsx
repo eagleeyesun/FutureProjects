@@ -3,9 +3,10 @@ import Image from 'next/image'
 import { doto } from '../app/layout'
 import { motion } from 'motion/react'
 import { useTime, useTransform, animate } from "motion/react"
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Loading() {
+  const [show, setShow] = useState(true);
   const time = useTime();
   const rotate = useTransform(time, [0, 5000], [0, 360], { clamp: false });
 
@@ -13,7 +14,7 @@ export default function Loading() {
 
   useEffect(() => {
     animate(0,100, {
-      duration: 3,
+      duration: 5,
       ease: 'circOut',
       onUpdate: (latest) => {
         if (countRef.current) {
@@ -21,6 +22,7 @@ export default function Loading() {
         }
       },
     })
+
   }, [])
 
   return (

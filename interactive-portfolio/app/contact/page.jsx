@@ -1,7 +1,7 @@
 "use client"
 import { motion, useScroll } from "motion/react";
-import React from 'react'
 import useMousePosition from '../utils/useMousePosition'
+import React from "react";
 import Image from "next/image";
 import { bBounce } from "../layout";
 
@@ -10,6 +10,32 @@ const page = () => {
 
   const { x, y } = useMousePosition();
   const size = hovered ? 300 : 50
+
+
+  const handleSubmit = async (e) => {
+     e.preventDefault();
+
+     const name = e.target.name.value
+      const email = e.target.email.value
+      const message = e.target.message.value
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        alert('Email sent successfully!');
+        e.target.reset();
+      } else {
+        alert('Failed to send email.');
+      }
+     
+  }
+
+
 
   return (
     <section className='xl:flex-row md:flex-row flex flex-col'>
@@ -38,13 +64,13 @@ const page = () => {
         </div>
 
 
-        <form className="bg-[#1D1D1D] flex flex-col w-full gap-10">
+        <form onSubmit={handleSubmit} className="bg-[#1D1D1D] flex flex-col w-full gap-10">
           <div className="flex gap-5 justify-center">
-            <input className="bg-[#1D1D1D] border border-zinc-100 px-3 py-4" type="text" placeholder="Your Name" />
-            <input className="bg-[#1D1D1D] border border-zinc-300 px-3 py-4" type="email" placeholder="Your email address" />
+            <input className="bg-[#1D1D1D] border border-zinc-100 px-3 py-4" name="name" type="text" placeholder="Your Name" />
+            <input className="bg-[#1D1D1D] border border-zinc-300 px-3 py-4" name="email" type="email" placeholder="Your email address" />
           </div>
           <div className="">
-            <textarea className="bg-[#1D1D1D] resize-none border border-white p-5 h-[100%]  w-1/2" name="" placeholder="What can i help you with?"></textarea>
+            <textarea className="bg-[#1D1D1D] resize-none border border-white p-5 h-[100%]  w-1/2" name="message" placeholder="What can i help you with?"></textarea>
           </div>
           <div>
             <button className="hover:bg-white hover:text-black border border-zinc-300 px-10 py-4 rounded-xl " type="submit">Submit Message</button>

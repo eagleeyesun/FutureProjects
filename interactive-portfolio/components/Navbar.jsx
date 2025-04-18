@@ -6,8 +6,16 @@ import { Canvas } from '@react-three/fiber'
 import { Environment, OrbitControls, Point } from '@react-three/drei'
 import { monte } from '@/app/layout'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 const Navbar = () => {
+  const pathname = usePathname()
+  const hideContact = pathname === "/contact" 
+  const hideProject = pathname === "/projects"
+  const hideAbout = pathname === "/about"
+  const hideHome = pathname === "/"
+
+
   return (
     <header className={`flex ${monte.className} flex-row w-screen`}>
       <div className="hidden lg:block">
@@ -24,9 +32,10 @@ const Navbar = () => {
         </Canvas>
       </div>
       <nav className='text-white font-bold flex pb-16 flex-grow justify-evenly items-center sm:gap-5'>
-        <Link href='/about'>About Me</Link>
-        <Link href='/projcts'>Projects</Link>
-        <Link href='/contact'>Contact</Link>
+        {!hideAbout&& ( <Link href='/about'>About Me</Link>)}
+        {!hideProject && ( <Link href='/projects'>Projects</Link>)}
+        {!hideContact && (<Link href='/contact'>Contact</Link>)}
+        {!hideHome && ( <Link href='/'>Home</Link>)}
         <a
           href="/ShubhamN_Resume.pdf"
           download

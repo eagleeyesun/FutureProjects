@@ -22,3 +22,17 @@
     color: transparent;
     animation: rainbowGradient 10s ease infinite;
   }
+
+  .mask {
+    position: absolute;
+    mask-image: url("/mask.svg");
+    background: black;
+    mask-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    mask-size: 50px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

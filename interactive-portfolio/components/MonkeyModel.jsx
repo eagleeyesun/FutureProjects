@@ -2,7 +2,7 @@
 import * as THREE from 'three'
 import { useLayoutEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { Center, AccumulativeShadows, RandomizedLight, OrbitControls, Environment, useGLTF } from '@react-three/drei'
+import { Center, AccumulativeShadows, RandomizedLight, OrbitControls, Environment, useGLTF, Preload } from '@react-three/drei'
 import { FlakesTexture } from 'three-stdlib'
 
 const MonkeyModel = () => {
@@ -20,7 +20,15 @@ const MonkeyModel = () => {
           </AccumulativeShadows>
         </group>
         <Environment preset="city" />
-   
+        <OrbitControls
+          enableZoom={false}
+          autoRotate={true}
+          autoRotateSpeed={1}
+          minPolarAngle={Math.PI / 2}
+          maxPolarAngle={Math.PI / 2}
+          enablePan={false}
+          />
+          <Preload all />
       </Canvas>
     </div>
 

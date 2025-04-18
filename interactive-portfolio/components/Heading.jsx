@@ -1,13 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Birthstone_Bounce } from "next/font/google";
+import { bBounce } from "@/app/layout";
 
-const bBounce = Birthstone_Bounce({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-wind-song",
-});
 
 const greetings = [
     "नमस्ते",        

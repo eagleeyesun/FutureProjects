@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import MousePointer from "@/components/MousePointer";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const bBounce = Birthstone_Bounce({
   subsets: ["latin"],
@@ -46,6 +47,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
         <LayoutWrapper>
+        <SpeedInsights/>
 
           <div className="absolute top-2 left-0 right-0 z-50">
             <Navbar />

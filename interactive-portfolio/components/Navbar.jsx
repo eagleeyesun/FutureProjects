@@ -5,8 +5,6 @@ import LogoModel from './LogoModel'
 import { monte } from '@/app/layout'
 import { usePathname } from 'next/navigation'
 
-
-
 const Navbar = () => {
   const pathname = usePathname()
   const hideContact = pathname === "/contact" 
@@ -20,7 +18,7 @@ const Navbar = () => {
       <div className="hidden lg:block">
         <LogoModel />
       </div>
-      <nav className='text-white font-bold flex pb-16 flex-grow justify-evenly items-center sm:gap-5'>
+      <nav className='text-white font-bold flex pb-16 flex-grow justify-around items-center sm:gap-5'>
   {!hideAbout && (
     <Link href="/about" className="relative group">
       About Me

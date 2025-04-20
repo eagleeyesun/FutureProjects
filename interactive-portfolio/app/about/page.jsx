@@ -3,7 +3,7 @@ import MonkeyModel from '@/components/MonkeyModel'
 import React from 'react'
 import { monte } from '../layout'
 import Image from 'next/image'
-import { motion, useScroll } from "motion/react";
+import { motion } from "motion/react";
 
 
 const skills = [
@@ -20,7 +20,8 @@ const Page = () => {
 
   return (
 
-<section className={`${monte.className} pt-24 w-screen gap-10 min-h-screen bg-[goldenrod] grid lg:grid lg:grid-cols-2`}>      <div className='absolute top-0 h-screen w-screen left-0 right-0 z-10'>
+<section className={`${monte.className} pt-24 w-screen gap-10 min-h-screen bg-[goldenrod] grid lg:grid lg:grid-cols-2`}>   
+     <div className='absolute top-0 h-screen w-screen left-0 right-0 z-0'>
         <MonkeyModel />
       </div>
 
@@ -31,7 +32,7 @@ const Page = () => {
           <br /> secure backends with Node.js, Express, and beyond—I do it all. <br />
           Obsessed with clean architecture, performance,<br /> and user delight.</h2>
 
-        <p className='text-xs sm:text-lg font-medium pt-2'>  I thrive on solving real-world challenges and <br /> turning complex problems into clean, scalable web solutions. <br />
+        <p className='text-xs sm:text-lg font-bold lg:font-medium pt-2'>  I thrive on solving real-world challenges and <br /> turning complex problems into clean, scalable web solutions. <br />
           My approach to development is as dynamic <br /> as the tech landscape itself—there’s no one-size-fits-all,<br /> only continuous learning and adaptation. <br />
 
           Whether it’s pixels or endpoints, I’m all about crafting <br /> seamless digital experiences with a touch of fun and <br /> a lot of function.
@@ -40,9 +41,9 @@ const Page = () => {
         </p>
       </div>
 
-      <div className='relative pl-5 md:pl-40 max-w-[100%] lg:col-span-1 flex flex-col justify-center gap-5'>
-        <Image className='rounded-lg sm:pl-10 md:w-[70%] filter grayscale hover:grayscale-0 transition duration-300' src='/MyImg.jpeg' alt='my Image' height={400} width={600} />
-        <img className='absolute top-[5%] right-[35%]' src="/bulle.gif" alt="just" />
+      <div className='relative md:pl-40 max-w-[100%] lg:col-span-1 flex flex-col justify-center z-20 gap-5'>
+        <Image className='rounded-lg md:w-[70%] filter grayscale hover:grayscale-0 transition duration-300' src='/MyImg.jpeg' alt='my Image' height={400} width={600} />
+        <img className='absolute top-[5%] hidden md:block right-[35%]' src="/bulle.gif" alt="just" />
         <a
           href="/ShubhamN_Resume.pdf"
           download
@@ -92,11 +93,3 @@ const Page = () => {
 }
 
 export default Page
-
-
-
-
-// animate={{
-//   WebkitMaskPosition: `${x-size/2}px ${y-size/2}px`,
-
-// }} transition={{type:"tween",ease:"backOut"}}  id='mask' 

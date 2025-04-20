@@ -1,8 +1,8 @@
 import { Geist, Geist_Mono, Doto, Montserrat, Birthstone_Bounce } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Loading from "@/components/Loading";
 import LayoutWrapper from "@/components/LayoutWrapper";
+import MousePointer from "@/components/MousePointer";
 
 export const bBounce = Birthstone_Bounce({
   subsets: ["latin"],
@@ -50,7 +50,7 @@ export default function RootLayout({ children }) {
           <div className="absolute top-2 left-0 right-0 z-50">
             <Navbar />
           </div>
-
+<MousePointer/>
           {children}
 
         </LayoutWrapper>

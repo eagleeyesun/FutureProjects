@@ -77,11 +77,13 @@ export default function Loading() {
           alt="logo"
           width={400}
           height={400}
+          priority
+          style={{ height: "auto" }} 
           className="animate-pulse"
         />
       </motion.div>
       <div className="absolute z-0">
-   <h2 className="text-white text-[40vw] opacity-10" ref={countRef}>0</h2>
+   <h2 className="text-white text-[clamp(2rem, 10vw, 10rem)] opacity-10" ref={countRef}>0</h2>
        </div>
     </div>
   );

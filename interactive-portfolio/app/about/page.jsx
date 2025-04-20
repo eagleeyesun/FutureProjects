@@ -20,8 +20,7 @@ const Page = () => {
 
   return (
 
-    <section className={`${monte.className} pt-24 w-screen gap-10 h-screen bg-[goldenrod] grid lg:grid lg:grid-cols-2`}>
-      <div className='absolute top-0 h-screen w-screen left-0 right-0 z-10'>
+<section className={`${monte.className} pt-24 w-screen gap-10 min-h-screen bg-[goldenrod] grid lg:grid lg:grid-cols-2`}>      <div className='absolute top-0 h-screen w-screen left-0 right-0 z-10'>
         <MonkeyModel />
       </div>
 
@@ -41,13 +40,13 @@ const Page = () => {
         </p>
       </div>
 
-      <div className='relative pl-5 lg:pl-40 max-w-[100%] lg:col-span-1 flex flex-col justify-center gap-5'>
+      <div className='relative pl-5 md:pl-40 max-w-[100%] lg:col-span-1 flex flex-col justify-center gap-5'>
         <Image className='rounded-lg sm:pl-10 md:w-[70%] filter grayscale hover:grayscale-0 transition duration-300' src='/MyImg.jpeg' alt='my Image' height={400} width={600} />
         <img className='absolute top-[5%] right-[35%]' src="/bulle.gif" alt="just" />
         <a
           href="/ShubhamN_Resume.pdf"
           download
-          className="font-bold max-w-[50%] z-50 hidden md:block lg:ml-20 text-center py-2 border-2 border-black dark:border-white uppercase bg-white text-black transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]"
+          className="hover:scale-125 font-bold max-w-[50%] z-50 hidden md:hidden lg:block lg:ml-20 text-center py-2 border-2 border-black dark:border-white uppercase bg-white text-black transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]"
         >
           GET MY RESUME
         </a>
@@ -60,7 +59,7 @@ const Page = () => {
           <p className="text-sm text-gray-600 dark:text-gray-400">@ Bizkriege Solutions Pvt Ltd, Pune</p>
           <p className="text-xs font-medium text-gray-500 dark:text-gray-300">Aug 2022 – Present</p>
 
-          <div className="mt-2">
+          <div>
             <p className="text-sm text-gray-700 dark:text-gray-300 leading-snug">
               Building fast, responsive UIs with <span className="font-semibold text-black dark:text-white">React.js</span> and robust APIs using <span className="font-semibold text-black dark:text-white">Node.js</span> + <span className="font-semibold text-black dark:text-white">Express.js</span>. I focus on writing clean, testable code, enhancing app performance, and collaborating in agile teams to deliver scalable solutions.
             </p>

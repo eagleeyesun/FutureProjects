@@ -2,7 +2,7 @@
 import * as THREE from 'three'
 import { useLayoutEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { Center, AccumulativeShadows, RandomizedLight, OrbitControls, Environment, useGLTF, Preload } from '@react-three/drei'
+import { Center, AccumulativeShadows, RandomizedLight, OrbitControls, Environment, useGLTF, Preload, Loader, BakeShadows } from '@react-three/drei'
 import { FlakesTexture } from 'three-stdlib'
 
 const MonkeyModel = () => {
@@ -29,7 +29,9 @@ const MonkeyModel = () => {
           enablePan={false}
           />
           <Preload all />
+          <BakeShadows />
       </Canvas>
+      <Loader />
     </div>
 
   )

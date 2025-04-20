@@ -30,10 +30,10 @@ const Slider = () => {
     }
 
     return (
-        <section className={`bg-black h-[400vh] pl-[5%] ${monte.className}`} ref={scrollRef}>
+        <section className={`bg-gradient-to-br from-[#0d0221] via-[#1a1a2e] to-[#ff00cc] h-[400vh] pl-[5%] ${monte.className}`} ref={scrollRef}>
 
             <div className='h-[100vh] sticky top-0 flex items-center overflow-hidden'>
-                <motion.div style={{ x }} className='flex gap-[5%]'>
+                <motion.div style={{ x }} className='flex gap-[5%] pt-5'>
                     {slides.map(slide => (
                         <motion.div
 
@@ -44,7 +44,8 @@ const Slider = () => {
                             onClick={() => handleClick(slide)}
                             className='w-screen relative flex items-center justify-center cursor-pointer'
                         >
-                            <Image className='h-[65%] rounded-xl w-full object-cover' width={1600} height={900} src={slide.img} alt={slide.title} />
+                            <Image priority sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                className='h-[80vh] rounded-xl w-full object-cover' width={1200} height={700} src={slide.img} alt={slide.title} />
                             <div className='absolute inset-0 flex items-center justify-center'>
                                 <h1 className='text-white text-center xl:text-[10vw] md:text-[8vw] text-[12vw] font-extrabold'>
                                     {slide.title}

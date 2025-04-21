@@ -1,9 +1,13 @@
+"use client";
 import { Geist, Geist_Mono, Doto, Montserrat, Birthstone_Bounce } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import MousePointer from "@/components/MousePointer";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import PageTransition from "./utils/pageTransition";
+import { AnimatePresence } from "framer-motion";
+
 
 export const bBounce = Birthstone_Bounce({
   subsets: ["latin"],
@@ -46,15 +50,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
-        <LayoutWrapper>
-        <SpeedInsights/>
+      <LayoutWrapper>
+          <SpeedInsights />
 
           <div className="absolute top-2 left-0 right-0 z-50">
             <Navbar />
           </div>
-<MousePointer/>
-          {children}
 
+          <MousePointer />
+
+          <AnimatePresence mode="wait">
+            <PageTransition>{children}</PageTransition>
+          </AnimatePresence>
+          
         </LayoutWrapper>
       </body>
 

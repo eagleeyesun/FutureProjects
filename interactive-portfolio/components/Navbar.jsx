@@ -4,9 +4,12 @@ import Link from 'next/link'
 import LogoModel from './LogoModel'
 import { monte } from '@/app/layout'
 import { usePathname } from 'next/navigation'
+import useIsLargeScreen from '@/app/utils/useIsLargeScreen'
 
 const Navbar = () => {
   const pathname = usePathname()
+  const isLarge = useIsLargeScreen(); 
+
   const hideContact = pathname === "/contact" 
   const hideProject = pathname === "/projects"
   const hideAbout = pathname === "/about"
@@ -16,7 +19,7 @@ const Navbar = () => {
   return (
     <header className={`flex ${monte.className} flex-row w-screen`}>
       <div className="hidden lg:block">
-        <LogoModel />
+       {isLarge && <LogoModel />} 
       </div>
       <nav className='text-white font-bold flex pb-16 flex-grow justify-around items-center sm:gap-5'>
   {!hideAbout && (

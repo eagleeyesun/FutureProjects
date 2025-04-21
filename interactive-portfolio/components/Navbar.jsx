@@ -21,7 +21,7 @@ const Navbar = () => {
       <nav className='text-white font-bold flex pb-16 flex-grow justify-around items-center sm:gap-5'>
   {!hideAbout && (
     <Link href="/about" className="relative group">
-      About Me
+      About
       <span className="absolute left-0 -bottom-1 w-0 h-[4px] bg-white transition-all duration-300 group-hover:w-full"></span>
     </Link>
   )}
@@ -46,7 +46,7 @@ const Navbar = () => {
   <a
     href="/ShubhamN_Resume.pdf"
     download
-    className="hover:scale-125 text-center px-5 py-2 border-2 border-black dark:border-white uppercase bg-white text-black transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]"
+    className="sm:hover:scale-125 text-center md:px-5 md:py-2 border-2 border-black dark:border-white uppercase bg-white text-black transition duration-200 text-sm shadow-[1px_1px_rgba(0,0,0),2px_2px_rgba(0,0,0),3px_3px_rgba(0,0,0),4px_4px_rgba(0,0,0),5px_5px_0px_0px_rgba(0,0,0)] dark:shadow-[1px_1px_rgba(255,255,255),2px_2px_rgba(255,255,255),3px_3px_rgba(255,255,255),4px_4px_rgba(255,255,255),5px_5px_0px_0px_rgba(255,255,255)]"
   >
     GET MY RESUME
   </a>

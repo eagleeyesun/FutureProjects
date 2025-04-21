@@ -53,7 +53,7 @@ export default function Loading() {
             }}
           />
           
-          <h1 className="whitespace-nowrap">Shubham Nalbhe</h1>
+          <h1 className="text-base md:text-2xl whitespace-nowrap">Shubham Nalbhe</h1>
 
           {/* Right animated line */}
           <motion.div

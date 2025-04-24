@@ -12,7 +12,7 @@ const slideVariants = {
       y: "0%",
       opacity: 1,
       transition: {
-        duration: ,
+        duration:1 ,
         ease: [0.25, 1, 0.5, 1], 
       },
     },
@@ -20,7 +20,7 @@ const slideVariants = {
       y: "-100%",
       opacity: 0,
       transition: {
-        duration: 1.5,
+        duration: 1,
         ease: [0.25, 1, 0.5, 1],
       },
     },

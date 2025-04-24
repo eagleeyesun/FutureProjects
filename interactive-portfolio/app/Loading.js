@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image'
-import { doto } from '../app/layout'
+import { doto } from './layout'
 import { motion } from 'motion/react'
 import { useTime, useTransform, animate } from "motion/react"
 import { useEffect, useRef, useState } from 'react'
@@ -14,7 +14,7 @@ export default function Loading() {
 
   useEffect(() => {
     animate(0,100, {
-      duration: 5,
+      duration: 2,
       ease: 'circOut',
       onUpdate: (latest) => {
         if (countRef.current) {
@@ -73,7 +73,7 @@ export default function Loading() {
       {/* Rotating logo above text */}
       <motion.div style={{ rotate }} className="z-0">
         <Image
-          src="/Final SUN logo.svg"
+          src="/mylogo.svg"
           alt="logo"
           width={400}
           height={400}

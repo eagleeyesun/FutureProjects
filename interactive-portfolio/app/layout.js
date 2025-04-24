@@ -49,6 +49,9 @@ const geistMono = Geist_Mono({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <title>interactive portfolio</title>
+      <meta name="description" content="Portfolio Created by Shubham." />
+
       <body>
       <LayoutWrapper>
           <SpeedInsights />

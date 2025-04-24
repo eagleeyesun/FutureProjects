@@ -1,9 +1,12 @@
 "use client"
-import MonkeyModel from '@/components/MonkeyModel'
+// import MonkeyModel from '@/components/MonkeyModel'
 import React from 'react'
 import { monte } from '../layout'
 import Image from 'next/image'
 import { motion } from "motion/react";
+import dynamic from 'next/dynamic'
+
+const MonkeyModel = dynamic(() => import('@/components/MonkeyModel'))
 
 
 const skills = [

@@ -5,7 +5,7 @@ import * as THREE from 'three'
 export function Logo(props) {
   const { nodes } = useGLTF('/models/sunLogo.gltf')
 
-  // Create a silver metallic material
+  // silver metallic material
   const silverMaterial = new THREE.MeshStandardMaterial({
     color: new THREE.Color('silver'),
     metalness: 1,
@@ -47,4 +47,4 @@ export function Logo(props) {
   )
 }
 
-useGLTF.preload('/sunLogo.gltf')
+useGLTF.preload('/models/sunLogo.gltf')

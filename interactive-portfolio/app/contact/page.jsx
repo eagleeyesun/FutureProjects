@@ -1,5 +1,5 @@
 "use client"
-import { motion, useScroll } from "motion/react";
+import { motion } from "motion/react";
 import useMousePosition from '../utils/useMousePosition'
 import React from "react";
 import Image from "next/image";
@@ -18,6 +18,7 @@ const page = () => {
      const name = e.target.name.value
       const email = e.target.email.value
       const message = e.target.message.value
+      
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -121,19 +122,3 @@ const page = () => {
 }
 
 export default page
-
-
-{/* <motion.div
-animate={{
-  WebkitMaskPosition: `${x-size / 2}px ${y-size / 2}px`,
-  WebkitMaskSize: `${size}px ${size}px`,
-
-}} transition={{type:"tween",ease:"backOut"}}
- id='mask' className='text-4xl'>
-
-  <h1 onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>Let’s Build Something Cool</h1>
-
-</motion.div>
-<div>
-  <h1 className='text-4xl'>Lets Connect Yeah</h1>
-</div> */}

@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { bBounce } from "@/app/layout";
 
-
 const greetings = [
     "नमस्ते",        
     "Hello",         

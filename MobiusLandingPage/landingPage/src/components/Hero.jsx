@@ -12,7 +12,7 @@ const Hero = () => {
 
             <div>
                 <div>
-                    <img src="/bookall.png" alt="bookcover" />
+                    <img src="/bookall.png" alt="bookcover" className='object-contain' loading='lazy' />
                  </div>
                 
 

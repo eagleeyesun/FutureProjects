@@ -6,7 +6,7 @@ const Footer = () => {
 
 
             <div className='px-18'>
-                <img src="/footerlogo.png" alt="logo" className='object-contain w-[502] h-[100]' loading='lazy' />
+                <img src="/footerlogo.png" alt="logo" className='object-contain' loading='lazy' />
             </div>
             <div className="border-b-1 w-96 ml-18 mt-10 border-[#BCBCBC]"></div>
 

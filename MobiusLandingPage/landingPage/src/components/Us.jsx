@@ -1,6 +1,6 @@
 import React from 'react'
 
-const WhyUs = () => {
+const Us = () => {
   return (
     <section className='mt-24 mb-36'>
         <div>
@@ -29,4 +29,4 @@ const WhyUs = () => {
   )
 }
 
-export default WhyUs
+export default Us

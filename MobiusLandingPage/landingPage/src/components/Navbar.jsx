@@ -15,13 +15,14 @@ const Navbar = () => {
                 <a href="#privacy">Privacy Policy</a>
 
                 <div className="relative w-24">
-                    <select className="appearance-none w-full bg-transparent px-0 py-2 pr-6 rounded">
-                        <option>More</option>
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-[20px] flex items-center">
-                        <img src="/dropArrow.svg" alt="droparrow" />
-                    </div>
-                </div>
+    <label htmlFor="score-select" className="sr-only">Score</label>
+    <select id="score-select" className="appearance-none w-full bg-transparent px-0 py-2 pr-6 rounded">
+        <option>More</option>
+    </select>
+    <div className="pointer-events-none absolute inset-y-0 right-[20px] flex items-center">
+        <img src="/dropArrow.svg" alt="droparrow" />
+    </div>
+</div>
             </div>
 
             <div>

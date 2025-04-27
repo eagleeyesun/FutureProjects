@@ -3,7 +3,7 @@ import Hero from "./components/Hero"
 import Work from "./components/Work"
 import About from "./components/About"
 import Testimonials from "./components/Testimonials"
-import WhyUs from "./components/whyUs"
+import US from "./components/Us"
 import Plans from "./components/Plans"
 import ResumeBuild from "./components/ResumeBuild"
 import Footer from "./components/Footer"
@@ -31,7 +31,7 @@ function App() {
       </div>
         <Testimonials />
 
-        <WhyUs />
+        <US />
     
 
 

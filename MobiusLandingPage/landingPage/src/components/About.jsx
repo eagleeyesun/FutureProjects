@@ -2,10 +2,10 @@ import React from 'react'
 
 const About = () => {
     return (
-        <section className='w-screen h-screen relative text-primary leading-none pt-20'>
+        <section  id='about' className='w-screen h-screen relative text-primary leading-none pt-20'>
             <img src="/bg2.png" alt="background" className='absolute top-0 left-0 w-full h-full object-cover -z-10' />
             <div>
-                <h2 className='text-[40px] pb-16 pl-66'>About Us</h2>
+                <h2 className='text-[40px] pb-16 pl-64'>About Us</h2>
             </div>
             
 

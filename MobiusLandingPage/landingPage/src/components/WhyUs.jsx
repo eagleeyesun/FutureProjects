@@ -2,7 +2,7 @@ import React from 'react'
 
 const WhyUs = () => {
   return (
-    <section className='w-screen h-screen mt-10'>
+    <section className='mt-24 mb-36'>
         <div>
             <h2 className='text-[40px] text-navyBlue pl-66'>Why Choose Us?</h2>
         </div>

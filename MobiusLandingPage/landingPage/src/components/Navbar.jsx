@@ -9,8 +9,8 @@ const Navbar = () => {
 
             <div className='flex gap-8 items-center text-primary'>
                 <a href="/">Home</a>
-                <a href="/about">About Us</a>
-                <a href="#plan">Plans</a>
+                <a href="#about">About Us</a>
+                <a href="#plans">Plans</a>
                 <a href="#testimonials">Testimonials</a>
                 <a href="#privacy">Privacy Policy</a>
 
@@ -25,7 +25,7 @@ const Navbar = () => {
             </div>
 
             <div>
-                <button className='text-navyBlue bg-primary rounded-full px-7 py-2'>
+                <button className='text-navyBlue bg-primary rounded-full px-7 py-2 hover:bg-[#022183] hover:text-primary'>
                     Get Started
                 </button>
             </div>

@@ -3,7 +3,7 @@ import React from 'react'
 const Work = () => {
   return (
    <section className='flex flex-col py-14 gap-14'>
-    <h2 className='text-secondary text-[40px] pl-66'>How we work?</h2>
+    <h2 className='text-secondary text-[40px] pl-64'>How we work?</h2>
     <div className='flex justify-center gap-14'>
         <div>
             <h2 className='text-[56px] w-20 h-20 flex items-center justify-center rounded-full border-1 border-black'>1</h2>

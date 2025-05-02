@@ -9,7 +9,7 @@ const Navbar = () => {
 
             <div className='flex gap-8 items-center text-primary'>
                 <a href="/">Home</a>
-                <a href="#about">About Us</a>
+                <a href="/about">About Us</a>
                 <a href="#plans">Plans</a>
                 <a href="#testimonials">Testimonials</a>
                 <a href="#privacy">Privacy Policy</a>

@@ -14,7 +14,7 @@ const Landing = () => {
             <Button component={Link} to="/login" variant="outline" size="lg" fullWidth>
               Login
             </Button>
-            <Button component={Link} to="/register" size="lg" fullWidth>
+            <Button component={Link} to="/signup" size="lg" fullWidth>
               Sign Up
             </Button>
           </Stack>

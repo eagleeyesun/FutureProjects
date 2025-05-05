@@ -14,6 +14,7 @@ import { useState } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../config/firebase'
 import useAppStore from '../store/app.store'
+import { IconHome } from '@tabler/icons-react';
 
 const LoginPage = () => {
   const login = useAppStore((state) => state.login)
@@ -35,6 +36,20 @@ const LoginPage = () => {
 
   return (
     <Container size="xs" my="xl">
+      <Anchor
+        component={Link}
+        to="/"
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          marginBottom: '1rem',
+          color: 'teal',
+          textDecoration: 'none',
+        }}
+      >
+        <IconHome size={30} />Home
+      </Anchor>
       <Title align="center" mb="lg">Login</Title>
       <Paper withBorder p="md" shadow="sm">
         <form onSubmit={handleLogin}>

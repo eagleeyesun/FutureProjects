@@ -1,9 +1,9 @@
-import {StrictMode} from 'react'
+import React, {StrictMode} from 'react'
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App';
-import Landing from './pages/landing/Landing';
+const Landing = React.lazy(() => import('./pages/landing/Landing'));
 import Login from './components/LoginPage';
 import ListPage from './components/ListPage';
 import DetailPage from './components/DetailPage';

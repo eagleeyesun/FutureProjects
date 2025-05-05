@@ -11,23 +11,25 @@ import {
   Stack,
 } from '@mantine/core'
 import { useState } from 'react'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../config/firebase'
 import useAppStore from '../store/app.store'
 
 const LoginPage = () => {
-  const { login } = useAppStore()
+  const login = useAppStore((state) => state.login)
   const navigate = useNavigate()
-  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
-    const storedPassword = localStorage.getItem(`user:${username}`)
-    if (storedPassword && storedPassword === password) {
+    try {
+      await signInWithEmailAndPassword(auth, email, password)
       login()
       navigate('/list')
-    } else {
-      setError('Invalid username or password.')
+    } catch (err: any) {
+      setError(err.message)
     }
   }
 
@@ -38,10 +40,10 @@ const LoginPage = () => {
         <form onSubmit={handleLogin}>
           <Stack>
             <TextInput
-              label="Username"
-              value={username}
+              label="Email"
+              value={email}
               labelProps={{ style: { color: 'black' } }}
-              onChange={(e) => setUsername(e.currentTarget.value)}
+              onChange={(e) => setEmail(e.currentTarget.value)}
               required
             />
             <TextInput

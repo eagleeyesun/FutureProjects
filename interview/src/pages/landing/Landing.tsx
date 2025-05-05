@@ -1,26 +1,29 @@
-import { Button, Container, Stack, Title, Center } from '@mantine/core'
-import { Link } from 'react-router-dom'
+import Hero from '../../components/Hero'
+import Navbar from '../../components/Navbar'
 
 const Landing = () => {
   return (
-    <Center style={{ height: '100vh' }}>
-      <Container size="sm">
-        <Stack align="center" spacing="xl">
-          <Title order={1} align="center">
-            Welcome to the ROCKETRY of SpaceX
-          </Title>
+    <section
+      style={{
+        position: 'relative',
+        minHeight: '100vh',
+        height: '100svh',
+        width:'100vw',
+        backgroundImage: 'url(/spacex.jpg)',
+        backgroundSize: 'cover',
+        color: 'white',
+      }}
+    >
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0 }}>
+        <Navbar />
+      </div>
 
-          <Stack spacing="md">
-            <Button component={Link} to="/login" variant="outline" size="lg" fullWidth>
-              Login
-            </Button>
-            <Button component={Link} to="/signup" size="lg" fullWidth>
-              Sign Up
-            </Button>
-          </Stack>
-        </Stack>
-      </Container>
-    </Center>
+      <div style={{ position: 'absolute', top: '20%', left: 0, right: 0 }}>
+        <Hero />
+      </div>
+    </section>
+
+
   )
 }
 

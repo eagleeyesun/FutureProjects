@@ -1,4 +1,4 @@
-import { AppShell, Header } from '@mantine/core';
+import { AppShell} from '@mantine/core';
 import { ReactNode } from 'react';
 
 interface LayoutProps {
@@ -9,7 +9,6 @@ const Layout = ({ children }:LayoutProps) => {
   return (
     <AppShell
       padding="md"
-      header={<Header height={60}>Header Here</Header>}
     >
       {children}
     </AppShell>

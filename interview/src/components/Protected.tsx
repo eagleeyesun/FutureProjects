@@ -7,9 +7,13 @@ interface Props {
 }
 
 const Protected = ({ children }: Props) => {
-  const isAuthenticated = useAppStore((state) => state.isAuthenticated)
+  const { isAuthenticated } = useAppStore();
 
-  return isAuthenticated ? children : <Navigate to="/login" replace />
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />
+  }
+
+  return <>{children}</>;
 }
 
-export default Protected
+export default Protected;

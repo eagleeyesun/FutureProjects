@@ -1,27 +1,35 @@
 import { useNavigate } from 'react-router-dom'
-import { Button, TextInput, Container, Title, Paper, Group, Text } from '@mantine/core'
+import {
+  Button,
+  TextInput,
+  Container,
+  Title,
+  Paper,
+  Group,
+  Text,
+} from '@mantine/core'
 import { useState } from 'react'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../config/firebase'
 
 const SignUpPage = () => {
   const navigate = useNavigate()
-  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
-  const handleSignup = () => {
-    if (!username || !password) {
+  const handleSignup = async () => {
+    if (!email || !password) {
       setError('Please fill in all fields.')
       return
     }
 
-    const existingUser = localStorage.getItem(`user:${username}`)
-    if (existingUser) {
-      setError('User already exists.')
-      return
+    try {
+      await createUserWithEmailAndPassword(auth, email, password)
+      navigate('/login')
+    } catch (err: any) {
+      setError(err.message)
     }
-
-    localStorage.setItem(`user:${username}`, password)
-    navigate('/login')
   }
 
   return (
@@ -29,10 +37,10 @@ const SignUpPage = () => {
       <Title align="center" mb="lg">Sign Up</Title>
       <Paper withBorder p="md" shadow="sm">
         <TextInput
-          label="Username"
-          value={username}
+          label="Email"
+          value={email}
           labelProps={{ style: { color: 'black' } }}
-          onChange={(e) => setUsername(e.currentTarget.value)}
+          onChange={(e) => setEmail(e.currentTarget.value)}
         />
         <TextInput
           label="Password"

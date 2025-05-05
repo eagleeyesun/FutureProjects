@@ -43,7 +43,17 @@ export default function Navbar() {
 
         <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
           <Group>
-            <Link to="/list" style={{ textDecoration: 'none', color: 'black', fontWeight: 800 }}>
+            <Link
+              to="/list"
+              style={{
+                textDecoration: 'none',
+                color: 'black',
+                fontWeight: 800,
+                fontSize: '1.5rem',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'gray')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'black')}
+            >
               Rockets
             </Link>
           </Group>

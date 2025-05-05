@@ -15,7 +15,11 @@ const Hero = () => {
           color: 'white',
         }}
       >
-        <Title order={1} mb="md">
+        <Title order={1} mb="md" style={{
+          fontSize: '2.8rem',
+          fontWeight: 900,
+          lineHeight: 1.2,
+        }}>
           Welcome to the Rocketery of <br /> SpaceX
         </Title>
 

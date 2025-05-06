@@ -19,10 +19,8 @@ const Hero = () => {
           order={1}
           mb="md"
           style={{
-            fontSize: '2rem',
-            fontWeight: 800,
-            lineHeight: 1.2,
-            fontFamily: 'Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif',
+            fontSize: '2.5rem',
+            fontWeight: 900,
           }}
         >
           Welcome to the Rocketery of <br /> SpaceX

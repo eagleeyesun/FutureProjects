@@ -4,7 +4,6 @@ import Navbar from '../../components/Navbar'
 const Landing = () => {
   return (
     <section className="landing-container" style={{ position: 'relative' }}>
-      {/* Background Image */}
       <img 
         src="/spacex.jpg" 
         alt="rocket" 
@@ -19,7 +18,6 @@ const Landing = () => {
         }} 
       />
 
-      {/* Overlay Content */}
       <div style={{ position: 'relative', zIndex: 1 }}>
         <Navbar />
         <Hero />

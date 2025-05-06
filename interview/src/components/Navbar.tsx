@@ -115,8 +115,15 @@ export default function Navbar() {
         overlayProps={{ opacity: 0.5, blur: 4 }}
       >
         <Box>
-          <Link to="/list" onClick={() => setOpened(false)}>
-            <Text mb="sm" c="dark" fw={600}>Rockets</Text>
+          <Link
+            to="/list"
+            onClick={() => setOpened(false)}
+            style={{
+              textDecoration: 'none',
+              color: '#000',
+            }}
+          >
+            <Text mb="sm" fw={600}>Rockets</Text>
           </Link>
 
           {user ? (
@@ -131,10 +138,18 @@ export default function Navbar() {
             </>
           ) : (
             <>
-              <Link to="/login" onClick={() => setOpened(false)}>
+              <Link
+                to="/login"
+                onClick={() => setOpened(false)}
+                style={{ textDecoration: 'none' }}
+              >
                 <Button fullWidth variant="default" mb="sm">Log in</Button>
               </Link>
-              <Link to="/signup" onClick={() => setOpened(false)}>
+              <Link
+                to="/signup"
+                onClick={() => setOpened(false)}
+                style={{ textDecoration: 'none' }}
+              >
                 <Button fullWidth>Sign up</Button>
               </Link>
             </>

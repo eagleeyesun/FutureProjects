@@ -3,27 +3,28 @@ import Navbar from '../../components/Navbar'
 
 const Landing = () => {
   return (
-    <section
-      style={{
-        position: 'relative',
-        minHeight: '100vh',
-        height: '100svh',
-        width:'100vw',
-        backgroundImage: 'url(/spacex.jpg)',
-        backgroundSize: 'cover',
-        color: 'white',
-      }}
-    >
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0 }}>
-        <Navbar />
-      </div>
+    <section className="landing-container" style={{ position: 'relative' }}>
+      {/* Background Image */}
+      <img 
+        src="/spacex.jpg" 
+        alt="rocket" 
+        style={{ 
+          width: '100%', 
+          height: '100vh', 
+          objectFit: 'cover', 
+          position: 'absolute', 
+          top: 0, 
+          left: 0, 
+          zIndex: 0 
+        }} 
+      />
 
-      <div style={{ position: 'absolute', top: '20%', left: 0, right: 0 }}>
+      {/* Overlay Content */}
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <Navbar />
         <Hero />
       </div>
     </section>
-
-
   )
 }
 

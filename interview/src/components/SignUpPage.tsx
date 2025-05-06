@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,Link } from 'react-router-dom'
 import {
   Button,
   TextInput,
@@ -7,10 +7,13 @@ import {
   Paper,
   Group,
   Text,
+  Anchor
 } from '@mantine/core'
 import { useState } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../config/firebase'
+import { IconHome } from '@tabler/icons-react';
+
 
 const SignUpPage = () => {
   const navigate = useNavigate()
@@ -34,6 +37,20 @@ const SignUpPage = () => {
 
   return (
     <Container size="xs" my="xl">
+      <Anchor
+        component={Link}
+        to="/"
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          marginBottom: '1rem',
+          color: 'teal',
+          textDecoration: 'none',
+        }}
+      >
+        <IconHome size={30} />Home
+      </Anchor>
       <Title align="center" mb="lg">Sign Up</Title>
       <Paper withBorder p="md" shadow="sm">
         <TextInput

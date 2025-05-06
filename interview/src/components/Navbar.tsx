@@ -28,7 +28,7 @@ export default function Navbar() {
           padding: '20px 10px',
         }}
       >
-        <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'black' }}>
+        <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'white' }}>
           ROCKETERY
           <Button
             onClick={toggleTheme}
@@ -47,12 +47,12 @@ export default function Navbar() {
               to="/list"
               style={{
                 textDecoration: 'none',
-                color: 'black',
+                color: 'white',
                 fontWeight: 800,
                 fontSize: '1.5rem',
               }}
               onMouseEnter={(e) => (e.currentTarget.style.color = 'gray')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'black')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'white')}
             >
               Rockets
             </Link>

@@ -8,9 +8,9 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import images from '../constants/images'
 
 const SignIn = () => {
-  const { refetch, loading, isLoggedIn } = useGlobalContext()
+  const { refetch, loading, isLogged } = useGlobalContext()
 
-  if(!loading && isLoggedIn) return <Redirect href='/'/>
+  if(!loading && isLogged) return <Redirect href='/'/>
   
 const handleLogin = async () => {
     const result = await login()

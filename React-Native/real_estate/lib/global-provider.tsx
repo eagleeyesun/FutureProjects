@@ -25,7 +25,6 @@ const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
     const { 
         data: user,
         loading,
-        refetch,
      } = useAppwrite({
         fn: getCurrentUser,
     }) 

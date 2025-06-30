@@ -8,7 +8,7 @@ export const config = {
     projectID: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID,
     databaseId: process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID,
     galleriesCollectionId: process.env.EXPO_PUBLIC_APPWRITE_GALLERIES_COLLECTION_ID,
-    reviewsCollectionId: process.env.EXPO_PUBLIC_APPWRITE_REVIWS_COLLECTION_ID,
+    reviewsCollectionId: process.env.EXPO_PUBLIC_APPWRITE_REVIEWS_COLLECTION_ID,
     agentsCollectionId: process.env.EXPO_PUBLIC_APPWRITE_AGENTS_COLLECTION_ID,
     propertiesCollectionId: process.env.EXPO_PUBLIC_APPWRITE_PROPERTIES_COLLECTION_ID,
 }
@@ -72,21 +72,36 @@ export async function logout() {
     }
 }
 
-export async function getCurrentUser() {
-    try {
-        const response = await account.get();
 
-        if (response.$id) {
-            const userAvatar = await avatar.getInitials(response.name)
-            return {
-                ...response,
-                avatar: userAvatar.toString(),
-            }
-        }
-    } catch (error) {
-        console.error('Failed to get current user:', error);
-        return null;
+function bufferToBase64(buffer: Uint8Array): string {
+  let binary = '';
+  const bytes = new Uint8Array(buffer);
+  const len = bytes.byteLength;
+
+  for (let i = 0; i < len; i++) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+
+  return `data:image/png;base64,${btoa(binary)}`;
+}
+
+export async function getCurrentUser() {
+  try {
+    const response = await account.get();
+
+    if (response.$id) {
+      const avatarBuffer = await avatar.getInitials(response.name);
+      const base64Avatar = bufferToBase64(avatarBuffer);
+
+      return {
+        ...response,
+        avatar: base64Avatar,
+      };
     }
+  } catch (error) {
+    console.error('Failed to get current user:', error);
+    return null;
+  }
 }
 
 
@@ -136,4 +151,19 @@ export async function getProperties({ filter, query, limit }: {
         return []
     }
 
+}
+
+
+export async function getPropertyById({ id }:{ id: string }) {
+    try {
+         const result = await databases.getDocument(
+            config.databaseId!,
+            config.propertiesCollectionId!,
+            id
+         )
+         return result
+    } catch (error) {
+        console.error(error,"this property does data not available")
+        return null
+    }
 }

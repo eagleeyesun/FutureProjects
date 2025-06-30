@@ -32,6 +32,7 @@ const Profile = () => {
   const { user, refetch } = useGlobalContext()
   const handleLogout = async () => {
     const result = await logout()
+    
  
     if(result) {
       Alert.alert('Success', 'You have been logged out successfully.')
@@ -40,6 +41,7 @@ const Profile = () => {
       Alert.alert('Error', 'Failed to log out. Please try again.')
     }
   }
+
   return (
     <SafeAreaView className='bg-white h-full'>
 

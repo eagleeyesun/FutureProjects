@@ -1,0 +1,122 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.editor-pane {
+  width: 60%;
+  height: 100vh;
+  position: relative;
+}
+
+.output-pane {
+  width: 40%;
+  background-color: goldenrod;
+  color: black;
+  padding-top: 5rem;
+  overflow-y: auto;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: monospace;
+  white-space: pre-wrap;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.output-pane > h3 {
+  text-align: center;
+}
+ 
+.run-button {
+  top: 5px;
+  right: 5px;
+  background: #0f0f0f;
+  color: #fff;
+  border: gray 1px solid;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.toolbar{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding: 20px;
+  color: #fff;
+    background-color: goldenrod;
+
+}
+
+label {
+  background-color: goldenrod;
+  padding: 5px;
+  color: black;
+  border-radius: 10px;
+}
+
+select {
+  background-color:goldenrod;
+  padding: 6px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.theme-button {
+  padding: 10px;
+  background-color: black;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 6px 10px 10px rgba(230, 230, 230, 0.1);
+  border: none; 
+}
+
+.sidebar {
+  width: 200px;
+  background: #222;
+  color: #fff;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.sidebar > button {
+  width: 100%;
+  margin-bottom: 2rem;
+  padding-block: 10px;
+  background-color: #444;
+  color: #fff;
+
+}
+
+.note-tab {
+  padding: 0.5rem;
+  cursor: pointer;
+  border-bottom: 1px solid #444;
+}
+
+.note-tab.active {
+  background: #444;
+  font-weight: bold;
+}
+
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  padding-left: 3rem;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+p {
+  font-size: xx-small;
+}

@@ -32,10 +32,10 @@ export default function RootLayout({
         <SessionProvider>
 
 
-        <FeedbackProvider>
+          <FeedbackProvider>
 
-        {children}
-        </FeedbackProvider>
+            {children}
+          </FeedbackProvider>
         </SessionProvider>
       </body>
     </html>

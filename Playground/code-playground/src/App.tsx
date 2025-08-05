@@ -10,21 +10,21 @@ type EditorWindow = {
   language: string
 }
 
-type LogType = 'log' | 'warn' | 'error' | 'info' | 'table';
+type LogType = 'log' | 'warn' | 'error' | 'info' | 'table'
 
 interface LogEntry {
-  id: string | number;
-  type: LogType;
-  message?: string;
-  color?: string;
-  tableData?: string[][];
+  id: string | number
+  type: LogType
+  message?: string
+  color?: string
+  tableData?: string[][]
 }
 
 function App() {
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null)
 
   const [theme, setTheme] = useState<'vs-dark' | 'light'>('vs-dark')
-  const [windows, setWindows] = useState(() => {
+  const [windows, setWindows] = useState<EditorWindow[]>(() => {
     const saved = localStorage.getItem('editorWindows')
     return saved ? JSON.parse(saved) : []
   })
@@ -34,109 +34,111 @@ function App() {
   useEffect(() => {
     const saved = localStorage.getItem('editorWindows')
     if (saved) {
-      const parsed = JSON.parse(saved)
+      const parsed: EditorWindow[] = JSON.parse(saved)
       setWindows(parsed)
       if (parsed.length) setActiveId(parsed[0].id)
     } else {
       handleCreateWindow()
     }
-  }, [])
+  },[])
 
   useEffect(() => {
     localStorage.setItem('editorWindows', JSON.stringify(windows))
   }, [windows])
-
-  const activeWindow = windows.find(w => w.id === activeId)
+  useEffect(() => {
+    if (windows.length > 0 && !activeId) {
+      setActiveId(windows[0].id)
+    }
+  }, [windows, activeId])
+  const activeWindow = windows.find((w: EditorWindow) => w.id === activeId)
 
   const handleEditorDidMount = (editor: monaco.editor.IStandaloneCodeEditor) => {
     editorRef.current = editor
   }
 
-const handleRunClick = useCallback(() => {
-  const code = activeWindow?.code ?? ''
-  const collected: { id: number; message: string; color: string; type?: string; tableData?: string[][] }[] = []
+  const handleRunClick = useCallback(() => {
+    const code = activeWindow?.code ?? ''
+    const collected: LogEntry[] = []
 
-  const originalLog = console.log
-  const originalWarn = console.warn
-  const originalInfo = console.info
-  const originalError = console.error
+    const originalLog = console.log
+    const originalWarn = console.warn
+    const originalInfo = console.info
+    const originalError = console.error
 
-  console.log = (...args) => {
-    const message = args.map(arg =>
-      typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
-    ).join(' ')
-    collected.push({ id: Date.now() + Math.random(), message, color: 'black', type: 'log' })
-  }
+    console.log = (...args: unknown[]) => {
+      const message = args.map(arg =>
+        typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+      ).join(' ')
+      collected.push({ id: Date.now() + Math.random(), message, color: 'black', type: 'log' })
+    }
 
-  console.warn = (...args) => {
-    const message = args.join(' ')
-    collected.push({ id: Date.now() + Math.random(), message, color: 'orange', type: 'warn' })
-  }
+    console.warn = (...args: unknown[]) => {
+      const message = args.join(' ')
+      collected.push({ id: Date.now() + Math.random(), message, color: 'orange', type: 'warn' })
+    }
 
-  console.info = (...args) => {
-    const message = args.join(' ')
-    collected.push({ id: Date.now() + Math.random(), message, color: 'blue', type: 'info' })
-  }
+    console.info = (...args: unknown[]) => {
+      const message = args.join(' ')
+      collected.push({ id: Date.now() + Math.random(), message, color: 'blue', type: 'info' })
+    }
 
-  console.error = (...args) => {
-    const message = args.join(' ')
-    collected.push({ id: Date.now() + Math.random(), message, color: 'red', type: 'error' })
-  }
+    console.error = (...args: unknown[]) => {
+      const message = args.join(' ')
+      collected.push({ id: Date.now() + Math.random(), message, color: 'red', type: 'error' })
+    }
 
-  console.table = (data: any) => {
-    const rows: string[][] = []
+    console.table = (data: any) => {
+      const rows: string[][] = []
 
-    if (Array.isArray(data)) {
-      const keys = Object.keys(data[0] || {})
-      rows.push(keys) // header
-      data.forEach(item => {
-        rows.push(keys.map(k => String(item[k])))
+      if (Array.isArray(data)) {
+        const keys = Object.keys(data[0] || {})
+        rows.push(keys)
+        data.forEach(item => {
+          rows.push(keys.map(k => String(item[k])))
+        })
+      } else if (typeof data === 'object' && data !== null) {
+        rows.push(['Key', 'Value'])
+        for (const [key, value] of Object.entries(data)) {
+          rows.push([key, String(value)])
+        }
+      }
+
+      collected.push({
+        id: Date.now() + Math.random(),
+        message: 'Table Output',
+        color: 'black',
+        type: 'table',
+        tableData: rows
       })
-    } else if (typeof data === 'object') {
-      rows.push(['Key', 'Value'])
-      for (const [key, value] of Object.entries(data)) {
-        rows.push([key, String(value)])
+    }
+
+    try {
+      new Function(code)()
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        collected.push({
+          id: Date.now(),
+          message: `Error: ${error.message}\n${error.stack}`,
+          color: 'red',
+          type: 'error'
+        })
+      } else {
+        collected.push({
+          id: Date.now(),
+          message: 'Unknown error',
+          color: 'red',
+          type: 'error'
+        })
       }
     }
 
-    collected.push({
-      id: Date.now() + Math.random(),
-      message: 'Table Output',
-      color: 'black',
-      type: 'table',
-      tableData: rows
-    })
-  }
+    console.log = originalLog
+    console.warn = originalWarn
+    console.info = originalInfo
+    console.error = originalError
 
-  try {
-    new Function(code)()
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      collected.push({
-        id: Date.now(),
-        message: `Error: ${error.message}\n${error.stack}`,
-        color: 'red',
-        type: 'error'
-      })
-    } else {
-      collected.push({
-        id: Date.now(),
-        message: 'Unknown error',
-        color: 'red',
-        type: 'error'
-      })
-    }
-  }
-
-  // Restore originals
-  console.log = originalLog
-  console.warn = originalWarn
-  console.info = originalInfo
-  console.error = originalError
-
-  setLogs(collected)
-}, [activeWindow])
-
+    setLogs(collected)
+  }, [activeWindow])
 
   const handleCodeChange = (value: string | undefined) => {
     if (!activeWindow) return
@@ -158,7 +160,7 @@ const handleRunClick = useCallback(() => {
   }
 
   const handleDeleteWindow = (id: string) => {
-    const filtered = windows.filter((window: EditorWindow) => window.id !== id)
+    const filtered = windows.filter((w: EditorWindow) => w.id !== id)
     setWindows(filtered)
 
     if (id === activeId) {
@@ -188,13 +190,11 @@ const handleRunClick = useCallback(() => {
     setTheme(prev => (prev === 'vs-dark' ? 'light' : 'vs-dark'))
   }
 
-
-
   return (
     <div className="container">
       <div className="sidebar">
         <button onClick={handleCreateWindow}>+ New Window</button>
-        {windows.map(win => (
+        {windows.map((win: EditorWindow) => (
           <div
             key={win.id}
             className={`note-tab ${win.id === activeId ? 'active' : ''}`}
@@ -231,7 +231,7 @@ const handleRunClick = useCallback(() => {
 
           <button className="run-button" onClick={handleRunClick}>
             Run ▶
-            <p >CTRL + S</p>
+            <p>CTRL + S</p>
           </button>
         </div>
 
@@ -243,7 +243,6 @@ const handleRunClick = useCallback(() => {
             value={activeWindow.code}
             onMount={handleEditorDidMount}
             onChange={handleCodeChange}
-            
             options={{
               fontSize: 16,
               minimap: { enabled: false },
@@ -257,58 +256,57 @@ const handleRunClick = useCallback(() => {
       </div>
 
       <div className="output-pane">
-  <h3>Console Output:</h3>
-
-  {logs.map((log) => (
-    <div key={log.id} style={{ marginBottom: '12px', color: log.color ?? 'inherit' }}>
-      {log.type === 'table' && log.tableData ? (
-        <table
-          style={{
-            borderCollapse: 'collapse',
-            width: '100%',
-            fontSize: '14px',
-            marginTop: '8px',
-          }}
-        >
-          <thead>
-            <tr>
-              {log.tableData[0]?.map((header, i) => (
-                <th
-                  key={i}
-                  style={{
-                    border: '1px solid #ccc',
-                    background: '#f0f0f0',
-                    fontWeight: 'bold',
-                  }}
-                >
-                  {header}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {log.tableData.slice(1).map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                {row.map((cell, cellIndex) => (
-                  <td
-                    key={cellIndex}
-                    style={{ border: '1px solid #ccc',textAlign: 'center'}}
-                  >
-                    {cell}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <div>
-          <strong>[{log.type.toUpperCase()}]</strong> {log.message}
-        </div>
-      )}
-    </div>
-  ))}
-</div>
+        <h3>Console Output:</h3>
+        {logs.map((log) => (
+          <div key={log.id} style={{ marginBottom: '12px', color: log.color ?? 'inherit' }}>
+            {log.type === 'table' && log.tableData ? (
+              <table
+                style={{
+                  borderCollapse: 'collapse',
+                  width: '100%',
+                  fontSize: '14px',
+                  marginTop: '8px',
+                }}
+              >
+                <thead>
+                  <tr>
+                    {log.tableData[0]?.map((header, i) => (
+                      <th
+                        key={i}
+                        style={{
+                          border: '1px solid #ccc',
+                          background: '#f0f0f0',
+                          fontWeight: 'bold',
+                        }}
+                      >
+                        {header}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {log.tableData.slice(1).map((row, rowIndex) => (
+                    <tr key={rowIndex}>
+                      {row.map((cell, cellIndex) => (
+                        <td
+                          key={cellIndex}
+                          style={{ border: '1px solid #ccc', textAlign: 'center' }}
+                        >
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            ) : (
+              <div>
+                <strong>[{log.type.toUpperCase()}]</strong> {log.message}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
